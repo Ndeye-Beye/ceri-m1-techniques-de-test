@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   test-java:
     docker:
-      - image: circleci/openjdk:17.0
+      - image: circleci/openjdk:23.0
     steps:
       - checkout
       - run:
