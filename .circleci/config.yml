@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/openjdk:23.jdk
     steps:
-      - checkout  https://github.com/Ndeye12/ceri-m1-techniques-de-test.git
+      - checkout
 
       - run:
           name: Install Maven
