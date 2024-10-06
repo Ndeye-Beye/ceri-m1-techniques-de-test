@@ -34,7 +34,7 @@
   workflows:
     build-and-test:
       jobs:
-        - test-java
-      # - deploy:
-      #     requires:
-      #       - test-java
+        - test-java :
+            filters:
+              branches:
+                only: master
