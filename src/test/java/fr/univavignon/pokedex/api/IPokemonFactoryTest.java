@@ -19,11 +19,18 @@ public class IPokemonFactoryTest {
 
     @Test
     public void createPokemon(){
-        Pokemon pokemon = pokemonFactory.createPokemon(0,613,64,4000,4);
-        assertEquals(pokemon.getIndex(),0);
-        assertEquals(pokemon.getCp(),613);
-        assertEquals(pokemon.getHp(),64);
-        assertEquals(pokemon.getDust(),4000);
-        assertEquals(pokemon.getCandy(),4);
+        Pokemon pokemonExample1 = pokemonFactory.createPokemon(0,613,64,4000,4);
+        assertEquals(pokemonExample1.getIndex(),0);
+        assertEquals(pokemonExample1.getCp(),613);
+        assertEquals(pokemonExample1.getHp(),64);
+        assertEquals(pokemonExample1.getDust(),4000);
+        assertEquals(pokemonExample1.getCandy(),4);
+
+        Pokemon pokemonExample2 = pokemonFactory.createPokemon(133,2729,202,5000,4);
+        assertEquals(pokemonExample2.getIndex(),133);
+        assertEquals(pokemonExample2.getCp(),2729);
+        assertEquals(pokemonExample2.getHp(),202);
+        assertEquals(pokemonExample2.getDust(),5000);
+        assertEquals(pokemonExample2.getCandy(),4);
     }
 }
