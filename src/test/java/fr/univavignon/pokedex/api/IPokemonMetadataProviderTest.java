@@ -20,20 +20,20 @@ public class IPokemonMetadataProviderTest {
     }
 
     @Test
-    public void getPokemonMetadata() throws PokedexException {
-        PokemonMetadata metadataExample1 = pokemonMetadataProvider.getPokemonMetadata(0);
-        assertEquals(metadataExample1.getIndex(), 0);
-        assertEquals(metadataExample1.getName(), "bulbizarre");
-        assertEquals(metadataExample1.getAttack(), 126);
-        assertEquals(metadataExample1.getDefense(),126);
-        assertEquals(metadataExample1.getStamina(),90);
+    public void testGetPokemonMetadata() throws PokedexException {
+        PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);
+        assertEquals(metadata.getIndex(), 0);
+        assertEquals(metadata.getName(), "bulbizarre");
+        assertEquals(metadata.getAttack(), 126);
+        assertEquals(metadata.getDefense(),126);
+        assertEquals(metadata.getStamina(),90);
 
-        PokemonMetadata metadataExample2 = pokemonMetadataProvider.getPokemonMetadata(133);
-        assertEquals(metadataExample2.getIndex(), 133);
-        assertEquals(metadataExample2.getName(), "Aquali");
-        assertEquals(metadataExample2.getAttack(), 186);
-        assertEquals(metadataExample2.getDefense(),168);
-        assertEquals(metadataExample2.getStamina(),260);
+        metadata = pokemonMetadataProvider.getPokemonMetadata(133);
+        assertEquals(metadata.getIndex(), 133);
+        assertEquals(metadata.getName(), "Aquali");
+        assertEquals(metadata.getAttack(), 186);
+        assertEquals(metadata.getDefense(),168);
+        assertEquals(metadata.getStamina(),260);
 
     }
 
