@@ -51,7 +51,7 @@ public class IPokedexTest {
         int indexPokemonExample2 = pokedex.addPokemon(pokemonExample2);
 
         assertEquals(0, indexPokemonExample1);
-        assertEquals(1, indexPokemonExample2);
+        assertEquals(133, indexPokemonExample2);
 
         assertEquals(2, pokedex.size());
         
@@ -60,7 +60,7 @@ public class IPokedexTest {
     @Test
     public void testGetPokemon() throws PokedexException {
         assertEquals(pokedex.getPokemon(0), pokemonExample1);
-        assertEquals(pokedex.getPokemon(1), pokemonExample2);
+        assertEquals(pokedex.getPokemon(133), pokemonExample2);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class IPokedexTest {
         List<Pokemon> sortedByCp = pokedex.getPokemons(Comparator.comparing(Pokemon::getCp));
 
         assertEquals("Aquali", sortedByCp.get(0).getCp());
-        assertEquals("Bulbizarre", sortedByCp.get(1).getCp());
+        assertEquals("Bulbizarre", sortedByCp.get(133).getCp());
 
     }
 
