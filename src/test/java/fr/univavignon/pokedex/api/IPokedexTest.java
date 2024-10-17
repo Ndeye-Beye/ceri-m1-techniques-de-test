@@ -78,11 +78,14 @@ public class IPokedexTest {
         assertEquals("Aquali", sortedByName.get(0).getName());
         assertEquals("Bulbizarre", sortedByName.get(1).getName());
 
-    } public void testGetPokemonsSortedByCp(){
+    }
+
+    @Test
+    public void testGetPokemonsSortedByCp(){
         List<Pokemon> sortedByCp = pokedex.getPokemons(Comparator.comparing(Pokemon::getCp));
 
-        assertEquals("Aquali", sortedByCp.get(0).getCp());
-        assertEquals("Bulbizarre", sortedByCp.get(133).getCp());
+        assertEquals(pokemonExample1.getCp(), sortedByCp.get(0).getCp());
+        assertEquals(pokemonExample2.getCp(), sortedByCp.get(1).getCp());
 
     }
 

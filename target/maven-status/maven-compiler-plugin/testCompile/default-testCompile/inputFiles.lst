@@ -1,4 +1,5 @@
-/Users/beyendeye/IdeaProjects/ceri-m1-techniques-de-test/src/test/java/fr/univavignon/pokedex/api/IPokedexFactoryTest.java
-/Users/beyendeye/IdeaProjects/ceri-m1-techniques-de-test/src/test/java/fr/univavignon/pokedex/api/IPokedexTest.java
 /Users/beyendeye/IdeaProjects/ceri-m1-techniques-de-test/src/test/java/fr/univavignon/pokedex/api/IPokemonFactoryTest.java
 /Users/beyendeye/IdeaProjects/ceri-m1-techniques-de-test/src/test/java/fr/univavignon/pokedex/api/IPokemonMetadataProviderTest.java
+/Users/beyendeye/IdeaProjects/ceri-m1-techniques-de-test/src/test/java/fr/univavignon/pokedex/api/IPokedexFactoryTest.java
+/Users/beyendeye/IdeaProjects/ceri-m1-techniques-de-test/src/test/java/fr/univavignon/pokedex/api/IPokemonTrainerFactoryTest.java
+/Users/beyendeye/IdeaProjects/ceri-m1-techniques-de-test/src/test/java/fr/univavignon/pokedex/api/IPokedexTest.java
