@@ -3,10 +3,10 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class IPokemonMetadataProviderTest {
@@ -14,7 +14,7 @@ public class IPokemonMetadataProviderTest {
 
     @Before
     public void setUp() throws PokedexException {
-        pokemonMetadataProvider = Mockito.mock(IPokemonMetadataProvider.class);
+        pokemonMetadataProvider = mock(IPokemonMetadataProvider.class);
         when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(new PokemonMetadata(0,"bulbizarre",126,126,90));
         when(pokemonMetadataProvider.getPokemonMetadata(133)).thenReturn(new PokemonMetadata(133,"Aquali",186, 168,260));
     }
@@ -34,8 +34,20 @@ public class IPokemonMetadataProviderTest {
         assertEquals(metadata.getAttack(), 186);
         assertEquals(metadata.getDefense(),168);
         assertEquals(metadata.getStamina(),260);
-
     }
+
+    @Test
+    public void testGetPokemonMetadataInvalidIndex(){
+        try{
+            when(pokemonMetadataProvider.getPokemonMetadata(-1)).thenThrow(new PokedexException("Invalid Index"));
+        }catch (PokedexException e){
+            e.getMessage();
+        }
+        assertThrows(PokedexException.class, () -> pokemonMetadataProvider.getPokemonMetadata(-1));
+    }
+
+
+
 
 
 }
