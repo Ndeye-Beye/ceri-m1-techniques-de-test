@@ -1,6 +1,8 @@
 
   # Stacks detected: deps:java:.
   version: 2.1
+  orbs:
+    codecov: codecov/codecov@4.0.1
   jobs:
     test-java:
       docker:
@@ -19,7 +21,8 @@
             command: mvn clean verify
         - store_test_results:
             path: target/surefire-reports
-        - codecov/upload
+        - codecov/upload:
+            token: $CODECOV_TOKEN
 
         - save_cache:
             key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
