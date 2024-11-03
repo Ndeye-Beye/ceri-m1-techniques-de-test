@@ -15,19 +15,21 @@
         - restore_cache:
             key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
         - run:
-            command: mvn verify
+            name: Run Tests with JaCoCo
+            command: mvn clean verify
         - store_test_results:
             path: target/surefire-reports
+        - run :
+            name: Upload Coverage to Codecov
+            cammand: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
         - save_cache:
             key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
             paths:
               - ~/.m2/repository
     deploy:
-      # This is an example deploy job, not actually used by the workflow
       docker:
         - image: cimg/base:stable
       steps:
-        # Replace this with steps to deploy to users
         - run:
             name: deploy
             command: '#e.g. ./deploy.sh'
@@ -38,3 +40,5 @@
             filters:
               branches:
                 only: master
+
+
