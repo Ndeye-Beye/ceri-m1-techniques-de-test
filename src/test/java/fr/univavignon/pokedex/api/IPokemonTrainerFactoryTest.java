@@ -1,10 +1,14 @@
 package fr.univavignon.pokedex.api;
 
+
+
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
 public class IPokemonTrainerFactoryTest {
@@ -15,7 +19,7 @@ public class IPokemonTrainerFactoryTest {
     PokemonTrainer instinct;
     PokemonTrainer valor;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         pokemonTrainerFactory = Mockito.mock(IPokemonTrainerFactory.class);
         pokedexFactory = Mockito.mock(IPokedexFactory.class);
@@ -36,18 +40,21 @@ public class IPokemonTrainerFactoryTest {
     public void testCreateTrainer(){
         PokemonTrainer createMystic = pokemonTrainerFactory.createTrainer("mystic", Team.MYSTIC,pokedexFactory);
 
+        assertNotNull(createMystic);
         assertEquals("mystic", createMystic.getName());
         assertEquals(Team.MYSTIC, createMystic.getTeam());
         assertEquals(pokedex, createMystic.getPokedex());
 
         PokemonTrainer createInstinct = pokemonTrainerFactory.createTrainer("instinct", Team.INSTINCT,pokedexFactory);
 
+        assertNotNull(createInstinct);
         assertEquals("instinct", createInstinct.getName());
         assertEquals(Team.INSTINCT, createInstinct.getTeam());
         assertEquals(pokedex, createInstinct.getPokedex());
 
         PokemonTrainer createValor = pokemonTrainerFactory.createTrainer("valor", Team.VALOR,pokedexFactory);
 
+        assertNotNull(createValor);
         assertEquals("valor", createValor.getName());
         assertEquals(Team.VALOR, createValor.getTeam());
         assertEquals(pokedex, createValor.getPokedex());

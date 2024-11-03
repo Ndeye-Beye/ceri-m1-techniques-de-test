@@ -22,6 +22,8 @@
         - run:
             name: Upload Coverage to Codecov
             command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+            environment:
+              CODECOV_TOKEN: $CODECOV_TOKEN
         - save_cache:
             key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
             paths:

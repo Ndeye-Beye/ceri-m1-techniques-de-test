@@ -2,6 +2,7 @@ package fr.univavignon.pokedex.api;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.mockito.Mockito;
 
 import static org.junit.Assert.assertEquals;
@@ -10,7 +11,7 @@ import static org.mockito.Mockito.when;
 public class IPokemonFactoryTest {
     IPokemonFactory pokemonFactory;
 
-    @Before
+    @BeforeEach
     public void setUp(){
         pokemonFactory = Mockito.mock(IPokemonFactory.class);
         when(pokemonFactory.createPokemon(0,613,64,4000,4)).thenReturn(new Pokemon(0,"Bulbizarre",126,126,90,613,64,4000,4,56));
