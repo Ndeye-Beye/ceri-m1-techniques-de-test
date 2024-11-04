@@ -2,8 +2,8 @@
 
 - Ndeye Beye
 - Groupe : Master 1 ILSEN classique groupe 1
-[![CircleCI](https://circleci.com/gh/Ndeye-Beye/ceri-m1-techniques-de-test.svg?style=svg)](https://circleci.com/gh/TON_USER/TON_REPO)
-[![Codecov](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test/branch/main/graph/badge.svg)](https://codecov.io/gh/TON_USER/TON_REPO)
+[![CircleCI](https://circleci.com/gh/Ndeye-Beye/ceri-m1-techniques-de-test.svg?style=svg)](https://circleci.com/gh/Ndeye-Beye/ceri-m1-techniques-de-test)
+[![Codecov](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test/branch/main/graph/badge.svg)](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test)
 
 
 
