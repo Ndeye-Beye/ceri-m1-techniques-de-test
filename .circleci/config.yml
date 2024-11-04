@@ -21,7 +21,9 @@
             path: target/surefire-reports
         - run:
             name: Upload Coverage to Codecov
-            command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+            command: bash <(curl -s https://codecov.io/bash)
+            environment:
+              - CODECOV_TKEN: $CODECOV_TKEN
         - save_cache:
             key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
             paths:
