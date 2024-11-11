@@ -1,62 +1,46 @@
 package fr.univavignon.pokedex.api;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 public class PokemonComparatorsTest {
     @Test
-    public void testNameComparatorWithMocks() {
-        // Crée deux mocks de Pokemon
-        Pokemon pokemon1 = mock(Pokemon.class);
-        Pokemon pokemon2 = mock(Pokemon.class);
+    public void comparePokemonByName(){
+        Pokemon pokemon1 = new Pokemon(0, "Bulbizarre", 126,126,90,613,64,4000,4,56);
+        Pokemon pokemon2 = new Pokemon(133, "Aquali", 186,168,260,2729,202,5000,4,100);
+        Pokemon pokemon3 = new Pokemon(0, "Bulbizarre", 126,126,90,613,64,4000,4,56);
 
-        // Définit les valeurs retournées par getName()
-        when(pokemon1.getName()).thenReturn("Bulbizarre");
-        when(pokemon2.getName()).thenReturn("Aquali");
 
-        // Test du comparateur NAME
-        assertTrue(PokemonComparators.NAME.compare(pokemon1, pokemon2) > 0,
-                "Bulbizarre devrait être après Aquali par le nom");
-        assertTrue(PokemonComparators.NAME.compare(pokemon2, pokemon1) < 0,
-                "Aquali devrait être avant Bulbizarre par le nom");
-        assertTrue(PokemonComparators.NAME.compare(pokemon1, pokemon1) == 0,
-                "Un Pokémon devrait être égal à lui-même par le nom");
+        assertEquals(0,PokemonComparators.NAME.compare(pokemon1, pokemon3),"pokemon1 et pokemon3 qui ont le même nom, doit être égaux.");
+        assertTrue(PokemonComparators.NAME.compare(pokemon1, pokemon2) > 0, "Bulbizare doit être apres Aquali");
+        assertTrue(PokemonComparators.NAME.compare(pokemon2, pokemon1) < 0, "Aquali doit être avant Bulbizarre");
+    }
+    @Test
+    public void comparePokemonByIndex(){
+        Pokemon pokemon1 = new Pokemon(0, "Bulbizarre", 126,126,90,613,64,4000,4,56);
+        Pokemon pokemon2 = new Pokemon(133, "Aquali", 186,168,260,2729,202,5000,4,100);
+        Pokemon pokemon3 = new Pokemon(0, "Bulbizarre", 126,126,90,613,64,4000,4,56);
+
+        assertEquals(0, PokemonComparators.INDEX.compare(pokemon1,pokemon3), "les 2 pokémons qui ont le même index doit être égaux");
+        assertTrue(PokemonComparators.INDEX.compare(pokemon1, pokemon2)<0,"le pokemon1 avec l'index 0 devrait etre devant le pokemon2 avec l'index 1 ");
+        assertTrue(PokemonComparators.INDEX.compare(pokemon2, pokemon1)>0,"le pokemon2 avec l'index 1 devrait etre aprés le pokemon1 avec l'index 0 ");
     }
 
     @Test
-    public void testIndexComparatorWithMocks() {
-        Pokemon pokemon1 = mock(Pokemon.class);
-        Pokemon pokemon2 = mock(Pokemon.class);
+    public void comparePokemonByCp(){
+        Pokemon pokemon1 = new Pokemon(0, "Bulbizarre", 126,126,90,613,64,4000,4,56);
+        Pokemon pokemon2 = new Pokemon(133, "Aquali", 186,168,260,2729,202,5000,4,100);
+        Pokemon pokemon3 = new Pokemon(0, "Bulbizarre", 126,126,90,613,64,4000,4,56);
 
-        when(pokemon1.getIndex()).thenReturn(1);
-        when(pokemon2.getIndex()).thenReturn(133);
+        assertEquals(0, PokemonComparators.CP.compare(pokemon1, pokemon3), "Deux pokémons avec le même Cp devraient être égaux.");
+        assertTrue(PokemonComparators.CP.compare(pokemon1, pokemon2)<0, "Le Cp du pokémon1 devrait être avant le Cp du pokémon2, ");
+        assertTrue(PokemonComparators.CP.compare(pokemon2, pokemon1)>0, "Le Cp du pokémon1 devrait être aprés le Cp du pokémon2, ");
 
-        // Test du comparateur INDEX
-        assertTrue(PokemonComparators.INDEX.compare(pokemon1, pokemon2) < 0,
-                "Index de Bulbizarre devrait être inférieur à celui d'Aquali");
-        assertTrue(PokemonComparators.INDEX.compare(pokemon2, pokemon1) > 0,
-                "Index d'Aquali devrait être supérieur à celui de Bulbizarre");
-        assertTrue(PokemonComparators.INDEX.compare(pokemon1, pokemon1) == 0,
-                "Un Pokémon devrait être égal à lui-même par l'index");
     }
 
-    @Test
-    public void testCpComparatorWithMocks() {
-        Pokemon pokemon1 = mock(Pokemon.class);
-        Pokemon pokemon2 = mock(Pokemon.class);
-
-        when(pokemon1.getCp()).thenReturn(613);
-        when(pokemon2.getCp()).thenReturn(2729);
-
-        // Test du comparateur CP
-        assertTrue(PokemonComparators.CP.compare(pokemon1, pokemon2) < 0,
-                "CP de Bulbizarre devrait être inférieur à celui d'Aquali");
-        assertTrue(PokemonComparators.CP.compare(pokemon2, pokemon1) > 0,
-                "CP d'Aquali devrait être supérieur à celui de Bulbizarre");
-        assertTrue(PokemonComparators.CP.compare(pokemon1, pokemon1) == 0,
-                "Un Pokémon devrait être égal à lui-même par les CP");
-    }
 }
