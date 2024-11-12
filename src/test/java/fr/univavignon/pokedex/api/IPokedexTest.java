@@ -39,7 +39,6 @@ public class IPokedexTest {
             pokemons.sort(comparator);
             return pokemons;
         });
-
         
     }
 
