@@ -21,6 +21,9 @@
             name: Upload Coverage to Codecov
             command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
         - run:
+            name: Run Checkstyle
+            command: mvn validate
+        - run:
             name: Add SSH Key
             command: |
               mkdir -p ~/.ssh

@@ -1,6 +1,6 @@
-/*package fr.univavignon.pokedex.api;
+package fr.univavignon.pokedex.api;
 
-import java.util.List;
+/*import java.util.List;
 import java.util.ListResourceBundle;
 
 public class PokemonTrainerFactory implements IPokemonTrainerFactory{
@@ -10,13 +10,15 @@ public class PokemonTrainerFactory implements IPokemonTrainerFactory{
         this.pokemonTrainerList = pokemonTrainerList;
     }
     @Override
-    public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory) {
+    public PokemonTrainer createTrainer(String name, Team team, IPokedexFactory pokedexFactory){
+        IPokemonMetadataProvider metadataProvider = null;
+        IPokemonFactory pokemonFactory = null;
+        PokedexFactory pokedex = pokedexFactory.createPokedex(metadataProvider, pokemonFactory);
+        return pokedex;
+    }
 
-        IPokemonMetadataProvider pokemonMetadataProvider = null;
-        PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata()
-        IPokemonFactory pokemonFactory = ;
-
-        PokemonTrainer pokemonTrainer = new PokemonTrainer(name, team, pokedexFactory.createPokedex());
-        return null;
+    double calculateIv(int attack, int defense, int stamina){
+        double iv = (attack + defense + stamina)/3.0;
+        return iv;
     }
 }*/
