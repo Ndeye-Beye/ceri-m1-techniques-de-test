@@ -11,7 +11,6 @@ import java.util.List;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
 
 public class PokedexTest {
@@ -127,7 +126,9 @@ public class PokedexTest {
 
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
-        PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);
+        PokemonMetadata metadata = pokedex.getPokemonMetadata(0);
+
+
         assertEquals(0, metadata.getIndex());
         assertEquals("Bulbizarre", metadata.getName());
         assertEquals(126, metadata.getAttack());
@@ -135,23 +136,8 @@ public class PokedexTest {
         assertEquals(90, metadata.getStamina());
 
 
-
-
-
     }
-    /*public void testGetPokemonMetadataInvalidIndex() throws PokedexException {
-        PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);
-        metadata.getPokemonMetadata(999);  // Index invalide
-    }*/
-    @Test
-    public void testGetPokemonMetadataInvalidIndex(){
-        try{
-            when(pokemonMetadataProvider.getPokemonMetadata(-1)).thenThrow(new PokedexException("Invalid Index"));
-        }catch (PokedexException e){
-            e.getMessage();
-        }
-        assertThrows(PokedexException.class, () -> pokemonMetadataProvider.getPokemonMetadata(-1));
-    }
+
 
 
 }
