@@ -1,4 +1,5 @@
 # UCE Génie Logiciel Avancé : Techniques de tests
+[![CircleCI](https://undefined/status-badge/img/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://undefined/status-badge/redirect/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master)
 [![codecov](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test/graph/badge.svg?token=HPB0N67IYG)](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test)
 - Ndeye Beye
 - Groupe : Master 1 ILSEN classique groupe 1
