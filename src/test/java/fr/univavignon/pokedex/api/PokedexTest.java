@@ -26,7 +26,6 @@ public class PokedexTest {
         pokedex = new Pokedex(pokemonMetadataProvider, pokemonFactory);
 
         Pokemon pokemon1 = new Pokemon(0, "Bulbizarre", 126,126,90,613,64,4000,4,56);
-        Pokemon pokemon2 = new Pokemon(133, "Aquali", 186,168,260,2729,202,5000,4,100);
 
         PokemonMetadata bulbizarreMetadata = new PokemonMetadata(0, "Bulbizarre", 126, 126, 90);
         when(pokemonMetadataProvider.getPokemonMetadata(0)).thenReturn(bulbizarreMetadata);
@@ -127,7 +126,6 @@ public class PokedexTest {
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
         PokemonMetadata metadata = pokedex.getPokemonMetadata(0);
-
 
         assertEquals(0, metadata.getIndex());
         assertEquals("Bulbizarre", metadata.getName());

@@ -50,9 +50,7 @@ public class Pokedex implements IPokedex{
 
     @Override
     public PokemonMetadata getPokemonMetadata(int index) throws PokedexException {
-        if(index < 0 || index >= pokemons.size()){
-            throw new PokedexException("Index non trouvé" + index);
-        }
+
         return metadataProvider.getPokemonMetadata(index);
     }
 
