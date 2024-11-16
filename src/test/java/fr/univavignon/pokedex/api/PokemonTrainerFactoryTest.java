@@ -23,8 +23,9 @@ public class PokemonTrainerFactoryTest {
         IPokemonMetadataProvider pokemonMetadataProvider = Mockito.mock(PokemonMetadataProvider.class);
         IPokemonFactory pokemonFactory = Mockito.mock(IPokemonFactory.class);
         pokedex = Mockito.mock(IPokedex.class);
+        //when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
+        when(pokedexFactory.createPokedex(Mockito.any(), Mockito.any())).thenReturn(pokedex);
 
-        Mockito.when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
     }
 
 
@@ -41,4 +42,6 @@ public class PokemonTrainerFactoryTest {
         assertEquals(pokedex, pokemonTrainer.getPokedex());
 
     }
+
+
 }
