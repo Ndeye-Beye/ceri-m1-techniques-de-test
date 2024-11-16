@@ -13,8 +13,8 @@ public class PokemonTrainerFactory implements IPokemonTrainerFactory{
         List<PokemonMetadata> metadataList = new ArrayList<>();
         metadataList.add(new PokemonMetadata(0, "Bulbizarre", 126, 126, 90));
 
-        PokemonMetadataProvider metadataProvider = new PokemonMetadataProvider(metadataList);
-        PokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
+        IPokemonMetadataProvider metadataProvider = new PokemonMetadataProvider(metadataList);
+        IPokemonFactory pokemonFactory = new PokemonFactory(metadataProvider);
 
         IPokedex pokedexFactory1 = pokedexFactory.createPokedex(metadataProvider,pokemonFactory);
 

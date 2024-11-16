@@ -19,6 +19,7 @@ public class IPokemonMetadataProviderTest {
         when(pokemonMetadataProvider.getPokemonMetadata(133)).thenReturn(new PokemonMetadata(133,"Aquali",186, 168,260));
     }
 
+
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
         PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);

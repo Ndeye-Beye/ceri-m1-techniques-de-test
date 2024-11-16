@@ -3,6 +3,7 @@ fr/univavignon/pokedex/api/IPokemonMetadataProviderTest.class
 fr/univavignon/pokedex/api/PokedexTest.class
 fr/univavignon/pokedex/api/PokemonComparatorsTest.class
 fr/univavignon/pokedex/api/PokemonTest.class
+fr/univavignon/pokedex/api/PokemonTrainerFactoryTest.class
 fr/univavignon/pokedex/api/IPokedexTest.class
 fr/univavignon/pokedex/api/PokemonFactoryTest.class
 fr/univavignon/pokedex/api/PokedexFactoryTest.class
