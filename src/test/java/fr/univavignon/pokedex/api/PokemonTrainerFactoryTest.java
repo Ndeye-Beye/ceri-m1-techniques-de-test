@@ -4,9 +4,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.util.ArrayList;
+import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 public class PokemonTrainerFactoryTest {
     PokemonTrainerFactory pokemonTrainerFactory;
@@ -18,21 +20,21 @@ public class PokemonTrainerFactoryTest {
     public void setUp(){
         pokemonTrainerFactory = new PokemonTrainerFactory();
         pokedexFactory = Mockito.mock(IPokedexFactory.class);
-        pokedex = Mockito.mock(IPokedex.class);
-
         IPokemonMetadataProvider pokemonMetadataProvider = Mockito.mock(PokemonMetadataProvider.class);
         IPokemonFactory pokemonFactory = Mockito.mock(IPokemonFactory.class);
-
+        pokedex = Mockito.mock(IPokedex.class);
 
         Mockito.when(pokedexFactory.createPokedex(pokemonMetadataProvider, pokemonFactory)).thenReturn(pokedex);
     }
 
 
 
+
+
+
     @Test
     public void testCreateTrainer(){
         PokemonTrainer pokemonTrainer = new PokemonTrainer("Ndeye", Team.MYSTIC, pokedex);
-
         assertNotNull(pokemonTrainer);
         assertEquals("Ndeye", pokemonTrainer.getName());
         assertEquals(Team.MYSTIC, pokemonTrainer.getTeam());
