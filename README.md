@@ -89,11 +89,11 @@ Les commandes Maven suivantes permettent d'exécuter les tests et de générer d
     mvn test
     
 3. Générer les rapports de couverture avec JaCoCo
- 
+    ```bash
     mvn clean test jacoco:report
-     
+     ```
 4. Vérification Complète du projet
-    
+    ```bash
     mvn clean verify
     
 
