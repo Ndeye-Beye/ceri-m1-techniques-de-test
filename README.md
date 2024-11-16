@@ -1,60 +1,108 @@
-# Projet Technique de tests : Pokedex API 
+# Projet Technique de Tests : Pokedex API
 
-# Information personnelle
+## Informations personnelles
 
-- Nom : Beye
-- Prenom : Ndeye
-- Groupe : Master 1 ILSEN classique groupe 1
+- **Nom** : Beye
+- **Prénom** : Ndeye
+- **Groupe** : Master 1 ILSEN classique, groupe 1
 
-# Badges 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master)
-[![codecov](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test/graph/badge.svg?token=HPB0N67IYG)](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test)
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](https://example.com)
+---
 
+## Badges
 
-# Description du Projet :
+- [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master)
+- [![codecov](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test/graph/badge.svg?token=HPB0N67IYG)](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test)
 
-## Introduction
+---
 
-Vous allez à travers ces projet mettre en application une partie des aspects évoqués en cours vis à vis des techniques de tests.  
-Pour cela nous allons réaliser un projet logiciel de petite taille, en suivant la roadmap suivante : 
-- Setup du projet
-- Mise en place des outils d’intégration continue
-- Écriture des tests unitaires
-- Écriture des mocks, et validation des tests
-- Développement dirigé par les tests
-- Documentation et conventions de style
-- Test d'une implémentation donnée
+## Description du Projet
 
-Durant cette série de TPs, le gestionnaire de version Git sera utilisé à foison, à travers la plateforme GitHub. Si vous n’êtes pas à l’aise avec cet outil[^1], [voici](http://rogerdudler.github.io/git-guide/) un petit guide à garder sous la main.
+Ce projet a pour objectif de vous initier aux différentes **techniques de tests** utilisées en génie logiciel, en réalisant une application logicielle simple.  
+À travers une série de travaux pratiques, nous apprendrons à :
+
+- Configurer un environnement de développement ;
+- Intégrer des outils d'intégration continue ;
+- Écrire et valider des tests unitaires ;
+- Utiliser des mocks pour simuler des comportements complexes.
+
+Nous appliquerons également le **développement orienté par les tests (TDD)**, rédigerons une documentation claire, suivrons des conventions de style, et testerons des implémentations existantes pour assurer la qualité et la robustesse du code.  
+Ce projet mettra en œuvre des outils modernes tels que **Git**, **Maven**, **CircleCI** et **Codecov**, afin de nous familiariser avec les meilleures pratiques de développement logiciel.
+
+---
 
 ## Choix Techniques
 
-Dans le cadre de ce projet, plusieurs outils ont été intégrés pour garantir la qualité du code :
-- CircleCI : pour l'intégration continue, qui exécute les tests automatiquement à chaque modification.
-- JaCoCo : pour mesurer la couverture des tests. Cet outil génère des rapports détaillés indiquant les parties du code couvertes par les tests.
-- Codecov : pour héberger et visualiser les rapports de couverture. Ce service nous permet de vérifier en ligne le niveau de couverture de code pour chaque commit.
+Le projet repose sur des choix techniques adaptés pour garantir la qualité et la robustesse du code :
 
+### Langage et Frameworks
 
-## Sujets
+1. **Langage** :
+   - **Java** : Choisi pour sa robustesse et son écosystème riche.
 
-L'ensemble des sujets de TPs peut être trouvé dans le dossier `TPs`.
+2. **Build et Dépendances** :
+   - **Maven** : Pour une gestion centralisée des dépendances et des builds.
 
-Le dossier `src` contient la définition de l'ensemble des interfaces qui seront l'objet de vos travaux.
+3. **Intégration Continue** :
+   - **CircleCI** : Automatisation des tests et validations après chaque commit.
 
-## Rendus
+4. **Couverture de Tests** :
+   - **JaCoCo** : Pour mesurer la couverture des tests, générer des rapports détaillés, et identifier les parties du code couvertes.
+   - **Codecov** : Pour héberger et visualiser les rapports de couverture en ligne.
 
-Le rendu des TPs se fait au rythme suivant :
+5. **Tests Unitaires et Mocks** :
+   - **JUnit** : Pour écrire les tests unitaires.
+   - **Mockito** : Pour créer des mocks et simuler des dépendances externes.
 
-- TP1 : 2ème séance
-- TP2 : 2ème séance
-- TP3 : 3ème séance
-- TP4 : 5ème séance
-- TP5 : dernière séance
-- TP6 : dernière séance
+6. **Gestion des Versions** :
+   - **Git** : Pour le contrôle de version.
+   - **GitHub** : Pour l’hébergement du code et la collaboration.
 
-Pour chaque rendu vous devez créer un tag à partir du commit qui correspond à la complétion du TP.  
-Si vous ne spécifiez pas de tag, le dernier commit à la date-heure de la fin de séance sera celui considéré.
+---
 
-[^1]: Si vous n’êtes vraiment pas à l’aise avec cet outil nous vous conseillons quand même vivement de vous y mettre.
+## Structure du Projet
 
+Voici la structure des principaux répertoires du projet :
+
+- **src/main/java** : Contient le code source principal de l'application.
+- **src/test/java** : Contient les tests unitaires pour le projet.
+- **target/site/jacoco** : Répertoire généré contenant les rapports de couverture JaCoCo.
+- **target/site/surefire-reports** : Répertoire généré contenant les rapports de tests Maven Surefire.
+
+---
+
+## Objectifs des Travaux Pratiques
+
+Le projet est divisé en plusieurs travaux pratiques pour couvrir les étapes clés du développement logiciel avec tests :
+
+1. **TP1 : Setup du projet**
+   - Initialisation du dépôt Git et configuration de Maven.
+
+2. **TP2 : Intégration Continue**
+   - Configuration de CircleCI et intégration avec Codecov.
+
+3. **TP3 : Écriture des tests unitaires**
+   - Création de tests couvrant les interfaces principales.
+
+4. **TP4 : Validation avec Mocks**
+   - Utilisation de Mockito pour simuler des comportements complexes.
+
+5. **TP5 : Documentation et Style**
+   - Génération de la Javadoc et suivi des conventions Checkstyle.
+
+6. **TP6 : Finalisation**
+   - Validation de la couverture, revue du code, et présentation des résultats.
+
+---
+
+## Liens Utiles
+
+- [Documentation CircleCI](https://circleci.com/docs/)
+- [Documentation Codecov](https://docs.codecov.com/)
+- [Guide JaCoCo](https://www.eclemma.org/jacoco/)
+- [Mockito](https://site.mockito.org/)
+- [JUnit 5](https://junit.org/junit5/)
+
+---
+
+**Auteur** : Ndeye Beye  
+**Groupe** : Master 1 ILSEN classique, groupe 1  
