@@ -85,18 +85,18 @@ Les commandes Maven suivantes permettent d'exécuter les tests et de générer d
      `mvn clean test`
 
 > Exécuter uniquement les tests
-  
-    mvn test
+
+`mvn test`
 
 > Générer les rapports de couverture avec JaCoCo
-    ```bash
-    mvn clean test jacoco:report
-     ```
+
+`mvn clean test jacoco:report`
+
 
 > Vérification Complète du projet
-    ```bash
-    mvn clean verify
-    ````
+    
+`mvn clean verify`
+    
 
 
 ## Objectifs des Travaux Pratiques
@@ -104,7 +104,7 @@ Les commandes Maven suivantes permettent d'exécuter les tests et de générer d
 
 Le projet est divisé en plusieurs travaux pratiques pour couvrir les étapes clés du développement logiciel avec tests :
 
-1. **TP1 : Setup du projet**
+- **TP1 : Setup du projet**
    - Initialisation du dépôt Git et configuration de Maven.
 
 2. **TP2 : Intégration Continue**
