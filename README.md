@@ -71,10 +71,10 @@ Le projet repose sur des choix techniques adaptés pour garantir la qualité et 
 
 Voici la structure des principaux répertoires du projet :
 
-- src/main/java : Contient le code source principal de l'application.
-- src/test/java : Contient les tests unitaires pour le projet.
-- target/site/jacoco : Répertoire généré contenant les rapports de couverture JaCoCo.
-- target/site/surefire-reports : Répertoire généré contenant les rapports de tests Maven Surefire.
+- `src/main/java` : Contient le code source principal de l'application.
+- `src/test/java` : Contient les tests unitaires pour le projet.
+- `target/site/jacoco` : Répertoire généré contenant les rapports de couverture JaCoCo.
+- `target/site/surefire-reports` : Répertoire généré contenant les rapports de tests Maven Surefire.
 
 
 ## Lancer les tests
@@ -107,19 +107,19 @@ Le projet est divisé en plusieurs travaux pratiques pour couvrir les étapes cl
 - **TP1 : Setup du projet**
    - Initialisation du dépôt Git et configuration de Maven.
 
-2. **TP2 : Intégration Continue**
-   - Configuration de CircleCI et intégration avec Codecov.
+- **TP2 : Intégration Continue**
+  - Configuration de CircleCI et intégration avec Codecov.
 
-3. **TP3 : Écriture des tests unitaires**
+- **TP3 : Écriture des tests unitaires**
    - Création de tests couvrant les interfaces principales.
 
-4. **TP4 : Écriture des mocks, et validation des tests**
+- **TP4 : Écriture des mocks, et validation des tests**
    - Utilisation de Mockito pour simuler des comportements complexes.
 
-5. **TP5 : Documentation et conventions de style**
+- **TP5 : Documentation et conventions de style**
    - Génération de la Javadoc et suivi des conventions Checkstyle.
 
-6. **TP6 : Finalisation**
+- **TP6 : Finalisation**
    - Validation de la couverture, revue du code, et présentation des résultats.
 
 
