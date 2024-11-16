@@ -2,14 +2,18 @@
 
 ## Informations personnelles
 
+
 - **Nom** : Beye
 - **Prénom** : Ndeye
 - **Groupe** : Master 1 ILSEN classique, groupe 1
+
+
 
 ## Badges
 
 - [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master)
 - [![codecov](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test/graph/badge.svg?token=HPB0N67IYG)](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test)
+
 
 
 ## Description du Projet
@@ -26,50 +30,76 @@ Nous appliquerons également le **développement orienté par les tests (TDD)** 
 Ce projet mettra en place des outils comme **Git**, **Maven**, **CircleCI** et **Codecov**.
 
 
+
 ## Choix Techniques d'Implementation
 
 Le projet repose sur des choix techniques adaptés pour garantir la qualité et la robustesse du code :
+
 
 ### Langage et Frameworks
 
 1. **Langage** :
    - **Java** 
 
+
 2. **Build et Dépendances** :
    - **Maven** : Pour une gestion centralisée des dépendances et des builds.
 
+
 3. **Intégration Continue** :
    - **CircleCI** : Automatisation des tests et validations après chaque commit.
+
 
 4. **Couverture de Tests** :
    - **JaCoCo** : Pour mesurer la couverture des tests, générer des rapports détaillés, et identifier les parties du code couvertes.
    - **Codecov** : Pour héberger et visualiser les rapports de couverture en ligne.
 
+
 5. **Tests Unitaires et Mocks** :
    - **JUnit** : Pour écrire les tests unitaires.
    - **Mockito** : Pour créer des mocks et simuler des dépendances externes.
+
 
 6. **Gestion des Versions** :
    - **Git** : Pour le contrôle de version.
    - **GitHub** : Pour l’hébergement du code et la collaboration.
 
 
-### Structure du Projet
+
+## Structure du Projet
+
 
 Voici la structure des principaux répertoires du projet :
 
-- **src/main/java** : Contient le code source principal de l'application.
-- **src/test/java** : Contient les tests unitaires pour le projet.
-- **target/site/jacoco** : Répertoire généré contenant les rapports de couverture JaCoCo.
-- **target/site/surefire-reports** : Répertoire généré contenant les rapports de tests Maven Surefire.
+- src/main/java : Contient le code source principal de l'application.
+- src/test/java : Contient les tests unitaires pour le projet.
+- target/site/jacoco : Répertoire généré contenant les rapports de couverture JaCoCo.
+- target/site/surefire-reports : Répertoire généré contenant les rapports de tests Maven Surefire.
 
-### Exécuter les tests
-    -  mvn clean test
-    -  mvn test
-    -  mvn clean test jacoco:report
+
+## Lancer les tests
+Les commandes Maven suivantes permettent d'exécuter les tests et de générer des rapports :
+
+1.  **Nettoyer le projet et exécuter les tests** :
+   
+     mvn clean test
+     
+2. Exécuter uniquement les tests
+  
+    mvn test
+    
+3. Générer les rapports de couverture avec JaCoCo
+ 
+    mvn clean test jacoco:report
+     
+4. Vérification Complète du projet
+    
+    mvn clean verify
+    
 
 
 ## Objectifs des Travaux Pratiques
+
 
 Le projet est divisé en plusieurs travaux pratiques pour couvrir les étapes clés du développement logiciel avec tests :
 
@@ -90,6 +120,7 @@ Le projet est divisé en plusieurs travaux pratiques pour couvrir les étapes cl
 
 6. **TP6 : Finalisation**
    - Validation de la couverture, revue du code, et présentation des résultats.
+
 
 ## Liens Utiles
 
