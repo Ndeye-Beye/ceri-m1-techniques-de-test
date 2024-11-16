@@ -1,10 +1,16 @@
-# UCE Génie Logiciel Avancé : Techniques de tests
+# Projet Technique de tests : Pokedex API 
+
+# Information personnelle
+
+- Nom : Beye
+- Prenom : Ndeye
+- Groupe : Master 1 ILSEN classique groupe 1
+
+# Badges 
 [![CircleCI](https://undefined/status-badge/img/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://undefined/status-badge/redirect/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master)
 [![codecov](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test/graph/badge.svg?token=HPB0N67IYG)](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test)
-![CircleCI](https://img.shields.io/circleci/build/github/Ndeye-Beye/ceri-m1-techniques-de-test?style=shield)
 
-- Ndeye Beye
-- Groupe : Master 1 ILSEN classique groupe 1
+# Description du Projet :
 
 ## Introduction
 
