@@ -80,20 +80,20 @@ Voici la structure des principaux répertoires du projet :
 ## Lancer les tests
 Les commandes Maven suivantes permettent d'exécuter les tests et de générer des rapports :
 
-> Nettoyer le projet et exécuter les tests:
+**Nettoyer le projet et exécuter les tests:**
    
-     `mvn clean test`
+`mvn clean test`
 
-> Exécuter uniquement les tests
+**Exécuter uniquement les tests**
 
 `mvn test`
 
-> Générer les rapports de couverture avec JaCoCo
+**Générer les rapports de couverture avec JaCoCo**
 
 `mvn clean test jacoco:report`
 
 
-> Vérification Complète du projet
+**Vérification Complète du projet**
     
 `mvn clean verify`
     
