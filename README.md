@@ -1,4 +1,6 @@
-# Projet Technique de Tests : Pokedex API
+# UCE Génie Logiciel Avancé : Techniques de tests
+
+## Projet : Pokédex API
 
 ## Informations personnelles
 
