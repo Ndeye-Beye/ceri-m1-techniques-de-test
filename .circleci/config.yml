@@ -3,15 +3,16 @@
   version: 2.1
   jobs:
     test-java:
+
       docker:
         - image: cimg/openjdk:17.0
       steps:
         - checkout
+        - restore_cache:
+            key: cache-{{ checksum "pom.xml" }}
         - run:
             name: Run Tests with Maven
             command: mvn clean test
-        - restore_cache:
-            key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
         - run:
             name: Run Tests with JaCoCo
             command: mvn clean verify
@@ -22,7 +23,7 @@
             command: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
         - run:
             name: Run Checkstyle
-            command: mvn validate
+            command: mvn checkstyle:check
         - run:
             name: Add SSH Key
             command: |
