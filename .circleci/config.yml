@@ -33,7 +33,7 @@
               ssh-keyscan github.com >> ~/.ssh/known_hosts
 
         - save_cache:
-            key: cache-{{ checksum "/tmp/CIRCLECI_CACHE_KEY" }}
+            key: cache-{{ checksum "pom.xml" }}
             paths:
               - ~/.m2/repository
     deploy:
@@ -44,6 +44,27 @@
             name: deploy
             command: '#e.g. ./deploy.sh'
 
+    deploy-javadoc:
+      docker:
+        - image: maven:3.8.7-openjdk-17
+      steps:
+        - checkout
+        - run:
+            name: Generate Javadoc
+            command: mvn javadoc:javadoc
+        - run:
+            name: Deploy to GitHub Pages
+            command: |
+              git config user.name "CircleCI Bot"
+              git config user.email "ndeye.beye@alumni.avignon.fr"
+              git checkout --orphan gh-pages
+              git rm -rf .
+              mv target/site/apidocs/* .
+              touch .nojekyll  # Avoid issues with files starting with underscores
+              git add .
+              git commit -m "Deploy Javadoc"
+              git push origin gh-pages --force
+
 
   workflows:
     build-and-test:
@@ -52,5 +73,13 @@
             filters:
               branches:
                 only: master
+
+        - deploy-javadoc:
+           requires:
+             - test-java
+           filters:
+             branches:
+               only: master
+
 
 
