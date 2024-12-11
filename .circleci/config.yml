@@ -47,24 +47,45 @@
             name: deploy
             command: '#e.g. ./deploy.sh'
 
-    deploy-javadoc:
-      docker:
-        - image: cimg/openjdk:17.0
-      steps:
-        - checkout
-        - run:
-            name: Generate Javadoc
-            command: mvn javadoc:javadoc
-        - run:
-            name: Deploy to GitHub Pages
-            command: |
-              git config --global user.email "ndeye.beye@etu.univ-amu.fr"
-              git config --global user.name "Ndeye-Beye"
-              git fetch origin gh-pages || true
-              git checkout gh-pages || git checkout -b gh-pages
-              cp -r target/site/apidocs/* docs/
-              git commit -m "Deploy Javadoc"
-              git push https://$TOKEN@github.com/Ndeye-Beye/ceri-m1-techniques-de-test.git gh-pages --force
+
+
+
+    docs-deploy:
+    docker:
+      - image: cimg/openjdk:20.0
+    steps:
+      - checkout
+
+      - run:
+          name: Generate Javadoc
+          command: |
+            mvn javadoc:javadoc
+
+
+      - run:
+          name: Install and configure gh-pages
+          command: |
+            git config --global user.email "olfabre@gmail.com"
+            git config --global user.name "olfabre"
+
+            # Clone le dépôt
+            git clone https://$TOKEN_JAVADOC@github.com/olfabre/ceri-m1-techniques-de-test.git gh-pages
+            cd gh-pages
+
+            # Basculer ou créer la branche gh-pages
+            git checkout gh-pages || git checkout -b gh-pages
+
+            # Mettre à jour la branche gh-pages avec les changements distants
+            git pull origin gh-pages --rebase || echo "No remote changes to pull"
+
+            # Copier les fichiers Javadoc
+            cp -r target/site/apidocs/* ./
+
+            # Ajouter, committer et pousser les changements
+            git add -A
+            git commit -m "[skip ci] Updated Javadoc" || echo "No changes to commit"
+            git push https://$TOKEN_JAVADOC@github.com/olfabre/ceri-m1-techniques-de-test.git gh-pages --force
+
 
 
 
