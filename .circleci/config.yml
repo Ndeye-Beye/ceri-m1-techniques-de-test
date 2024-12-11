@@ -58,13 +58,13 @@
         - run:
             name: Deploy to GitHub Pages
             command: |
+              git config --global user.email "ndeye.beye@etu.univ-amu.fr"
+              git config --global user.name "Ndeye-Beye"
               git checkout gh-pages
-              git rm -rf . # Supprime tout le contenu existant dans la branche gh-pages
-              cp -r target/site/apidocs/* . # Copie les fichiers Javadoc à la racine
+              cp -r target/site/apidocs/* .
               git add .
-              git commit -m "Ajout de la documentation Javadoc"
+              git commit -m "Deploy Javadoc"
               git push origin gh-pages
-
 
   workflows:
     build-and-test:
