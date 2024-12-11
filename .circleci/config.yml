@@ -70,7 +70,7 @@ jobs:
             git pull origin gh-pages --rebase || echo "No remote changes to pull"
 
             # Copier les fichiers Javadoc
-            cp -r ../target/site/apidocs/* ./
+            cp -r target/site/apidocs/* ./
 
             # Ajouter, committer et pousser les changements
             git add -A
