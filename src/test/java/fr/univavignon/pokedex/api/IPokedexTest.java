@@ -42,6 +42,7 @@ public class IPokedexTest {
         
     }
 
+    /** Teste l'ajout de Pokémon dans le Pokedex. */
     @Test
     public void TestAddPokemon(){
 
@@ -56,12 +57,14 @@ public class IPokedexTest {
         
     }
 
+    /** Teste que getPokemon retourne les bons Pokémon pour des indices valides. */
     @Test
     public void testGetPokemon() throws PokedexException {
         assertEquals(pokedex.getPokemon(0), pokemonExample1);
         assertEquals(pokedex.getPokemon(133), pokemonExample2);
     }
 
+    /** Teste la récupération de tous les Pokémon dans le Pokedex. */
     @Test
     public void testGetPokemons(){
         assertNotNull(pokedex.getPokemons());
@@ -70,6 +73,7 @@ public class IPokedexTest {
         assertTrue(pokedex.getPokemons().contains(pokemonExample2));
     }
 
+    /** Teste le tri des Pokémon par nom. */
     @Test
     public void testGetPokemonsSortedByName(){
         List<Pokemon> sortedByName = pokedex.getPokemons(Comparator.comparing(Pokemon::getName));
@@ -79,6 +83,7 @@ public class IPokedexTest {
 
     }
 
+    /** Teste le tri des Pokémon par CP. */
     @Test
     public void testGetPokemonsSortedByCp(){
         List<Pokemon> sortedByCp = pokedex.getPokemons(Comparator.comparing(Pokemon::getCp));
@@ -87,6 +92,7 @@ public class IPokedexTest {
         assertEquals(pokemonExample2.getCp(), sortedByCp.get(1).getCp());
 
     }
+
 
 
 

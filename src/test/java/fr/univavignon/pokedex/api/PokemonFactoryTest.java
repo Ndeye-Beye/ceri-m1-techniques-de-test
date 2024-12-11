@@ -47,6 +47,7 @@ public class PokemonFactoryTest {
 
         double expectedIv = (attack + defense + stamina) / 3.0;
         assertEquals(expectedIv, pokemon.getIv(), 0.001);
+        verify(metadataProvider).getPokemonMetadata(0);
     }
     @Test
     public void testCalculateIv() throws PokedexException {

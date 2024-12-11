@@ -20,6 +20,12 @@ public class IPokemonMetadataProviderTest {
     }
 
 
+    /**
+     * Teste que getPokemonMetadata retourne les bonnes métadonnées
+     * pour des indices valides.
+     *
+     * @throws PokedexException si une erreur se produit
+     */
     @Test
     public void testGetPokemonMetadata() throws PokedexException {
         PokemonMetadata metadata = pokemonMetadataProvider.getPokemonMetadata(0);
@@ -39,13 +45,17 @@ public class IPokemonMetadataProviderTest {
 
     @Test
     public void testGetPokemonMetadataInvalidIndex(){
+        // Configurer le comportement pour un index invalide
         try{
             when(pokemonMetadataProvider.getPokemonMetadata(-1)).thenThrow(new PokedexException("Invalid Index"));
         }catch (PokedexException e){
             e.getMessage();
         }
+        // Vérifier que l'exception est bien levée
         assertThrows(PokedexException.class, () -> pokemonMetadataProvider.getPokemonMetadata(-1));
     }
+
+
 
 
 
