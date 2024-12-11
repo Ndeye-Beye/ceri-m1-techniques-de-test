@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PokemonFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">my-project</a> &gt; <a href="index.source.html" class="el_package">fr.univavignon.pokedex.api</a> &gt; <span class="el_source">PokemonFactory.java</span></div><h1>PokemonFactory.java</h1><pre class="source lang-java linenums">package fr.univavignon.pokedex.api;
+
+/**
+ * A factory implementation for creating Pokemon instances.
+ * It utilizes metadata provided by an {@link IPokemonMetadataProvider}.
+ *
+ * @author fv
+ */
+
+public class PokemonFactory implements IPokemonFactory{
+    /**
+     * Metadata provider used for fetching Pokemon metadata.
+     */
+    private final IPokemonMetadataProvider metadataProvider;
+
+    /**
+     * An instance of {@link IPokemonMetadataProvider} used to retrieve metadata.
+     * @param metadataProvider
+     */
+
+<span class="fc" id="L21">    public PokemonFactory(IPokemonMetadataProvider metadataProvider) {</span>
+<span class="fc" id="L22">        this.metadataProvider = metadataProvider;</span>
+<span class="fc" id="L23">    }</span>
+
+    /**
+     * Creates a Pokemon instance by computing its Individual Values (IVs).
+     *
+     * @param index Pokemon index.
+     * @param cp Pokemon CP.
+     * @param hp Pokemon HP.
+     * @param dust Required dust for upgrading pokemon.
+     * @param candy Required candy for upgrading pokemon.
+     * @return
+     * @throws PokedexException
+     */
+
+    @Override
+    public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) throws PokedexException {
+<span class="fc" id="L39">        PokemonMetadata metadata = metadataProvider.getPokemonMetadata(index);</span>
+
+
+<span class="fc" id="L42">        String name = metadata.getName();</span>
+<span class="fc" id="L43">        int attack = metadata.getAttack();</span>
+<span class="fc" id="L44">        int defense = metadata.getDefense();</span>
+<span class="fc" id="L45">        int stamina = metadata.getStamina();</span>
+<span class="fc" id="L46">        double iv = calculateIv(attack, defense, stamina);</span>
+<span class="fc" id="L47">        Pokemon pokemon = new Pokemon(index, name, attack, defense,stamina, cp, hp, dust, candy, iv);</span>
+<span class="fc" id="L48">        return pokemon;</span>
+    }
+
+    /**
+     * Calculates the Individual Value (IV) of a Pokemon.
+     *
+     * @param attack The attack stat of the Pokemon.
+     * @param defense The defense stat of the Pokemon.
+     * @param stamina The defense stat of the Pokemon.
+     * @return The calculated Individual Value (IV) as a double.
+     */
+
+    public double calculateIv(int attack, int defense, int stamina){
+<span class="fc" id="L61">        double iv = (attack + defense + stamina) / 3.0;</span>
+<span class="fc" id="L62">        return iv;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
