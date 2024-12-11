@@ -60,6 +60,7 @@
             command: |
               git config --global user.email "ndeye.beye@etu.univ-amu.fr"
               git config --global user.name "Ndeye-Beye"
+              git fetch origin gh-pages || true
               git checkout gh-pages || git checkout -b gh-pages
               mkdir -p docs
               cp -r target/site/apidocs/* docs/
@@ -67,6 +68,7 @@
               git commit -m "Deploy Javadoc"
               git remote set-url origin https://$TOKEN@github.com/Ndeye-Beye/ceri-m1-techniques-de-test.git
               git push origin gh-pages --force
+
 
 
   workflows:
