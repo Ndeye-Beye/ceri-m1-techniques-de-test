@@ -56,12 +56,24 @@ jobs:
       - run:
           name: Deploy to GitHub Pages
           command: |
+            # Configurer Git
             git config --global user.email "ndeye.beye@etu.univ-amu.fr"
             git config --global user.name "Ndeye-Beye"
+
+            # Récupérer la branche gh-pages ou la créer
             git fetch origin gh-pages || true
             git checkout gh-pages || git checkout -b gh-pages
+
+            # Copier les fichiers Javadoc générés
             cp -r target/site/apidocs/* ./
-            git commit -m "Deploy Javadoc"
+
+            # Ajouter les fichiers au commit
+            git add .
+
+            # Committer les changements
+            git commit -m "Deploy Javadoc" || echo "No changes to commit"
+
+            # Pousser les changements sur la branche gh-pages
             git push https://$TOKEN@github.com/Ndeye-Beye/ceri-m1-techniques-de-test.git gh-pages --force
 
 
