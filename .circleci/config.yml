@@ -58,12 +58,27 @@
         - run:
             name: Deploy to GitHub Pages
             command: |
+              set -e # Stop the script if any command fails
+
+              # Configure Git
               git config --global user.email "ndeye.beye@etu.univ-amu.fr"
               git config --global user.name "Ndeye-Beye"
+
+              # Fetch the gh-pages branch if it exists
               git fetch origin gh-pages || true
-              git checkout gh-pages || git checkout -b gh-pages
+
+              # Checkout gh-pages branch or create it if it doesn't exist
+              if git show-ref --quiet refs/heads/gh-pages; then
+                git checkout gh-pages
+              else
+                git checkout -b gh-pages
+              fi
+
+              # Copy Javadoc files to the docs folder
               mkdir -p docs
               cp -r target/site/apidocs/* docs/
+
+              # Stage, commit, and push changes
               git add docs
               git commit -m "Deploy Javadoc"
               git push https://$TOKEN@github.com/Ndeye-Beye/ceri-m1-techniques-de-test.git gh-pages --force
