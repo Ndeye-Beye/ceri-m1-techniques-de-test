@@ -66,7 +66,7 @@
               cp -r target/site/apidocs/* docs/
               git add docs
               git commit -m "Deploy Javadoc"
-              git push https://$Token@github.com/Ndeye-Beye/ceri-m1-techniques-de-test.git gh-pages --force
+              git push https://$TOKEN@github.com/Ndeye-Beye/ceri-m1-techniques-de-test.git gh-pages --force
 
 
 
