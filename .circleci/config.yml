@@ -64,7 +64,6 @@
               git checkout gh-pages || git checkout -b gh-pages
               mkdir -p docs
               cp -r target/site/apidocs/* docs/
-              git add docs
               git commit -m "Deploy Javadoc"
               git push https://$TOKEN@github.com/Ndeye-Beye/ceri-m1-techniques-de-test.git gh-pages --force
 
