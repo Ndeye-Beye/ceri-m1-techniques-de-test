@@ -15,10 +15,7 @@
 
 - [![CircleCI](https://dl.circleci.com/status-badge/img/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/Ndeye-Beye/ceri-m1-techniques-de-test/tree/master)
 - [![codecov](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test/graph/badge.svg?token=HPB0N67IYG)](https://codecov.io/gh/Ndeye-Beye/ceri-m1-techniques-de-test)
-- 
-- <img src="/Users/beyendeye/IdeaProjects/ceri-m1-techniques-de-test/target/badges/checkstyle-result.svg">
 - [![Checkstyle](https://img.shields.io/badge/Checkstyle-Passing-brightgreen)](https://Ndeye-Beye.github.io/ceri-m1-techniques-de-test/target/site/checkstyle.html)
-- [![Javadoc](https://img.shields.io/badge/javadoc-available-brightgreen)](https://Ndeye-Beye.github.io/ceri-m1-techniques-de-test/target/site/apidocs/index.html)
 
 
 

@@ -58,15 +58,12 @@
         - run:
             name: Deploy to GitHub Pages
             command: |
-              git config user.name "CircleCI Bot"
-              git config user.email "ndeye.beye@alumni.avignon.fr"
-              git checkout --orphan gh-pages
-              git rm -rf .
-              mv target/site/apidocs/* .
-              touch .nojekyll  # Avoid issues with files starting with underscores
+              git checkout gh-pages
+              git rm -rf . # Supprime tout le contenu existant dans la branche gh-pages
+              cp -r target/site/apidocs/* . # Copie les fichiers Javadoc à la racine
               git add .
-              git commit -m "Deploy Javadoc"
-              git push origin gh-pages --force
+              git commit -m "Ajout de la documentation Javadoc"
+              git push origin gh-pages
 
 
   workflows:
