@@ -17,16 +17,29 @@ public class RocketPokemonFactory implements IPokemonFactory {
 	 * Mapping des indices des Pokémon vers leurs noms respectifs.
 	 * Contient des indices spéciaux pour des cas particuliers comme -1 ou 0.
 	 */
-	private static Map<Integer, String> index2name; // Initialisation statique de la map index2name
-	private static final Random random = new Random(); // Instance unique pour l'ensemble de la classe
+	private static Map<Integer, String> index2name;
+	/**
+	 * Générateur de nombres aléatoires.
+	 * Utilisé pour générer les statistiques aléatoires des Pokémon.
+	 */
+	private static final Random random = new Random();
+	/**
+	 * Valeur spéciale pour les statistiques fixes des Pokémon.
+	 * Utilisée lorsque l'indice est négatif, par exemple pour les cas spéciaux.
+	 */
 	private static final int SPECIAL_STAT_VALUE = 1000;
+	/**
+	 * Valeur spéciale pour l'IV (Individual Value) des Pokémon.
+	 * Fixée à 0 pour les indices spéciaux.
+	 */
 	private static final double SPECIAL_IV_VALUE = 0.0;
 
 	static {
+		// Map temporaire pour initialiser les noms des Pokémon.
 		Map<Integer, String> aMap = new HashMap<Integer, String>();
-        aMap.put(-1, "Ash's Pikachu");
-        aMap.put(0, "MISSINGNO");
-        aMap.put(1, "Bulbasaur");
+        aMap.put(-1, "Ash's Pikachu"); // Valeur spéciale pour un Pokémon non standard.
+        aMap.put(0, "MISSINGNO"); // Valeur utilisée pour les indices inconnus.
+        aMap.put(1, "Bulbasaur"); // Exemple d'un Pokémon valide.
         //TODO : Gotta map them all !
         index2name = UnmodifiableMap.unmodifiableMap(aMap);
 	}
