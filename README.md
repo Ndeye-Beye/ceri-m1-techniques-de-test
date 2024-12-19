@@ -64,9 +64,15 @@ Le projet repose sur des choix techniques adaptés pour garantir la qualité et 
 5. **Tests Unitaires et Mocks** :
    - **JUnit** : Pour écrire les tests unitaires.
    - **Mockito** : Pour créer des mocks et simuler des dépendances externes.
+   - 
+6. **Conventions et Documentation**:
+
+   - **Checkstyle** : Suivi des normes de style de code.
+   - **Javadoc** : Documentation du code source.
 
 
-6. **Gestion des Versions** :
+
+7**Gestion des Versions** :
    - **Git** : Pour le contrôle de version.
    - **GitHub** : Pour l’hébergement du code et la collaboration.
 

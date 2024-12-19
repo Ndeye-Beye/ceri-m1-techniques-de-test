@@ -6,90 +6,92 @@ import java.util.Random;
 
 import org.apache.commons.collections4.map.UnmodifiableMap;
 
+import fr.univavignon.pokedex.api.IPokemonFactory;
+import fr.univavignon.pokedex.api.Pokemon;
 
 /**
- * Implémentation de l'interface IPokemonFactory par la Team Rocket.
- * Cette classe permet de créer des Pokémon avec des caractéristiques générées aléatoirement.
+ * Classe implémentant l'interface IPokemonFactory pour générer des instances de Pokémon.
+ * Cette classe utilise une carte statique pour mapper des indices à des noms de Pokémon
+ * et génère des statistiques aléatoires pour les Pokémon créés.
  */
-<span class="fc" id="L14">public class RocketPokemonFactory implements IPokemonFactory {</span>
+<span class="fc" id="L17">public class RocketPokemonFactory implements IPokemonFactory {</span>
 
 	/**
-	 * Mapping des indices des Pokémon vers leurs noms respectifs.
-	 * Contient des indices spéciaux pour des cas particuliers comme -1 ou 0.
+	 * Carte statique associant les indices de Pokémon à leurs noms.
+	 * Les noms sont initialisés dans un bloc statique et la carte est rendue immuable.
 	 */
 	private static Map&lt;Integer, String&gt; index2name;
-	/**
-	 * Générateur de nombres aléatoires.
-	 * Utilisé pour générer les statistiques aléatoires des Pokémon.
-	 */
-<span class="fc" id="L25">	private static final Random random = new Random();</span>
-	/**
-	 * Valeur spéciale pour les statistiques fixes des Pokémon.
-	 * Utilisée lorsque l'indice est négatif, par exemple pour les cas spéciaux.
-	 */
-	private static final int SPECIAL_STAT_VALUE = 1000;
-	/**
-	 * Valeur spéciale pour l'IV (Individual Value) des Pokémon.
-	 * Fixée à 0 pour les indices spéciaux.
-	 */
-	private static final double SPECIAL_IV_VALUE = 0.0;
-
 	static {
-		// Map temporaire pour initialiser les noms des Pokémon.
-<span class="fc" id="L39">		Map&lt;Integer, String&gt; aMap = new HashMap&lt;Integer, String&gt;();</span>
-<span class="fc" id="L40">        aMap.put(-1, &quot;Ash's Pikachu&quot;); // Valeur spéciale pour un Pokémon non standard.</span>
-<span class="fc" id="L41">        aMap.put(0, &quot;MISSINGNO&quot;); // Valeur utilisée pour les indices inconnus.</span>
-<span class="fc" id="L42">        aMap.put(1, &quot;Bulbasaur&quot;); // Exemple d'un Pokémon valide.</span>
-        //TODO : Gotta map them all !
-<span class="fc" id="L44">        index2name = UnmodifiableMap.unmodifiableMap(aMap);</span>
-<span class="fc" id="L45">	}</span>
+		// Initialisation de la carte des indices aux noms des Pokémon
+<span class="fc" id="L26">		Map&lt;Integer, String&gt; aMap = new HashMap&lt;Integer, String&gt;();</span>
+<span class="fc" id="L27">		aMap.put(-1, &quot;Ash's Pikachu&quot;); // Cas spécial pour un Pokémon spécifique</span>
+<span class="fc" id="L28">		aMap.put(0, &quot;MISSINGNO&quot;);      // Pokémon par défaut pour les indices inconnus</span>
+<span class="fc" id="L29">		aMap.put(1, &quot;Bulbasaur&quot;);      // Exemple de Pokémon standard</span>
+		// TODO : Ajouter les autres Pokémon ici
+<span class="fc" id="L31">		index2name = UnmodifiableMap.unmodifiableMap(aMap); // Rendre la carte immuable</span>
+<span class="fc" id="L32">	}</span>
 
 	/**
-	 * Génère une statistique aléatoire en simulant un processus pseudo-aléatoire coûteux.
-	 * Cette méthode est inefficace et doit être optimisée.
+	 * Méthode générant une statistique aléatoire.
+	 * Cette méthode utilise une boucle avec un grand nombre d'itérations,
+	 * ce qui peut être inefficace en termes de performance.
 	 *
-	 * @return une valeur moyenne calculée aléatoirement (entre 0 et 1 ici).
+	 * @return Une statistique aléatoire normalisée.
 	 */
 	static int generateRandomStat() {
-<span class="fc" id="L54">		return random.nextInt(16); // Génère un entier entre 0 et 15</span>
+<span class="fc" id="L42">		int total = 0;</span>
+		// Boucle pour générer une statistique basée sur des valeurs aléatoires
+<span class="fc bfc" id="L44" title="All 2 branches covered.">		for (int i = 0; i &lt; 1000000; i++) {</span>
+<span class="fc" id="L45">			Random rn = new Random();</span>
+<span class="fc" id="L46">			int r = rn.nextInt(2); // Génère un entier aléatoire entre 0 et 1</span>
+<span class="fc" id="L47">			total = total + r;</span>
+		}
+<span class="fc" id="L49">		return total / 10000; // Retourne une statistique moyenne</span>
 	}
-
-
-
 
 	/**
-	 * Crée une instance de Pokémon avec des statistiques générées.
+	 * Méthode implémentant la création d'un Pokémon.
+	 * Les statistiques du Pokémon sont générées en fonction de l'indice fourni.
 	 *
-	 * @param index L'indice du Pokémon (correspondant à son ID dans le Pokédex).
-	 * @param cp Points de Combat (Combat Power).
-	 * @param hp Points de Vie (Health Points).
-	 * @param dust Quantité de poussière d'étoiles nécessaire pour améliorer le Pokémon.
-	 * @param candy Nombre de bonbons nécessaires pour améliorer le Pokémon.
-	 * @return Une instance de {@link Pokemon} avec les caractéristiques fournies ou générées.
+	 * @param index Index du Pokémon (doit correspondre à un nom dans index2name).
+	 * @param cp Points de Combat (Combat Power) du Pokémon.
+	 * @param hp Points de Vie (Hit Points) du Pokémon.
+	 * @param dust Poussière nécessaire pour améliorer le Pokémon.
+	 * @param candy Bonbons nécessaires pour améliorer ou faire évoluer le Pokémon.
+	 * @return Une instance de Pokémon initialisée avec les paramètres fournis.
 	 */
-
-
 	@Override
 	public Pokemon createPokemon(int index, int cp, int hp, int dust, int candy) {
-<span class="fc" id="L74">		String name = index2name.getOrDefault(index, index2name.get(0));</span>
-
-		int attack, defense, stamina;
-		double iv;
-
-<span class="fc bfc" id="L79" title="All 2 branches covered.">		if (index &lt; 0) {</span>
-<span class="fc" id="L80">			attack = SPECIAL_STAT_VALUE;</span>
-<span class="fc" id="L81">			defense = SPECIAL_STAT_VALUE;</span>
-<span class="fc" id="L82">			stamina = SPECIAL_STAT_VALUE;</span>
-<span class="fc" id="L83">			iv = SPECIAL_IV_VALUE;</span>
+		// Détermination du nom du Pokémon en fonction de l'indice
+		String name;
+<span class="fc bfc" id="L67" title="All 2 branches covered.">		if (!index2name.containsKey(index)) {</span>
+<span class="fc" id="L68">			name = index2name.get(0); // Utilisation du nom par défaut &quot;MISSINGNO&quot;</span>
 		} else {
-<span class="fc" id="L85">			attack = generateRandomStat();</span>
-<span class="fc" id="L86">			defense = generateRandomStat();</span>
-<span class="fc" id="L87">			stamina = generateRandomStat();</span>
-<span class="fc" id="L88">			iv = 1.0;</span>
+<span class="fc" id="L70">			name = index2name.get(index);</span>
 		}
 
-<span class="fc" id="L91">		return new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);</span>
-	}
+		// Initialisation des statistiques du Pokémon
+		int attack;
+		int defense;
+		int stamina;
+		double iv; // Valeur individuelle (Individual Value)
 
+<span class="fc bfc" id="L79" title="All 2 branches covered.">		if (index &lt; 0) {</span>
+			// Cas des indices négatifs : valeurs fixes pour des Pokémon spéciaux
+<span class="fc" id="L81">			attack = 1000;</span>
+<span class="fc" id="L82">			defense = 1000;</span>
+<span class="fc" id="L83">			stamina = 1000;</span>
+<span class="fc" id="L84">			iv = 0; // Valeur individuelle nulle</span>
+		} else {
+			// Génération de statistiques aléatoires pour les indices valides
+<span class="fc" id="L87">			attack = RocketPokemonFactory.generateRandomStat();</span>
+<span class="fc" id="L88">			defense = RocketPokemonFactory.generateRandomStat();</span>
+<span class="fc" id="L89">			stamina = RocketPokemonFactory.generateRandomStat();</span>
+<span class="fc" id="L90">			iv = 1; // Valeur individuelle maximale</span>
+		}
+
+		// Retourne une nouvelle instance de Pokémon avec les paramètres définis
+<span class="fc" id="L94">		return new Pokemon(index, name, attack, defense, stamina, cp, hp, dust, candy, iv);</span>
+	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
